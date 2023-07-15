@@ -125,14 +125,14 @@ export default {
 
 @media (max-width: 560px) {
 	.wrapper {
-		width: 200px;
+		width: 180px;
 		margin: 5px;
 	}
 	.photo {
 		height: 100px;
 	}
 }
-@media (max-width: 440px) {
+@media (max-width: 400px) {
 	.wrapper {
 		width: 270px;
 	}
