@@ -19,13 +19,42 @@
 				<b>{{ place.name }}</b>
 			</div>
 			<hr />
-			<div><b>Кухня</b>: {{ place.cuisine }}</div>
-			<div><b>Бизнес-ланч</b>: {{ place.business_lunch }}</div>
-			<div><b>Средний чек</b>: {{ place.price }} руб</div>
-			<div><b>Адрес</b>: {{ place.address }}</div>
-			<div><b>Расстояние до</b>: {{ place.distance }} м</div>
-			<div><b>Как пройти</b>: {{ place.landmark }}</div>
-			<div><b>Время до</b>: {{ place.time }} мин</div>
+			<div>
+				<b>Кухня</b>:
+				<span v-if="place.cuisine">{{ place.cuisine }}</span>
+				<span v-else>Пока неизвестно</span>
+			</div>
+			<div>
+				<b>Бизнес-ланч</b>:
+				<span v-if="place.business_lunch === true">Есть</span>
+				<span v-else-if="place.business_lunch === false">Нету</span>
+				<span v-else>Пока неизвестно</span>
+			</div>
+			<div>
+				<b>Средний чек</b>:
+				<span v-if="place.price">{{ place.price }}руб</span>
+				<span v-else>Пока неизвестно</span>
+			</div>
+			<div>
+				<b>Адрес</b>:
+				<span v-if="place.address">{{ place.address }}</span>
+				<span v-else>Пока неизвестно</span>
+			</div>
+			<div>
+				<b>Расстояние до</b>:
+				<span v-if="place.distance">{{ place.distance }}м</span>
+				<span v-else>Пока неизвестно</span>
+			</div>
+			<div>
+				<b>Как пройти</b>:
+				<span v-if="place.landmark">{{ place.landmark }}</span>
+				<span v-else>Пока неизвестно</span>
+			</div>
+			<div>
+				<b>Время до</b>:
+				<span v-if="place.time">{{ place.time }}мин</span>
+				<span v-else>Пока неизвестно</span>
+			</div>
 		</div>
 	</div>
 </template>
@@ -41,6 +70,13 @@ export default {
 		};
 	},
 	methods: {
+		share() {
+			navigator.share({
+				text: 'Давай сюда',
+				url: '',
+				title: 'Давай сюда',
+			});
+		},
 		warnDisabled() {
 			this.disabled = true;
 			setTimeout(() => {
@@ -79,9 +115,29 @@ export default {
 	width: 100%;
 	height: 60%;
 	padding: 10px 15px 15px 15px;
-	font-size: 12px;
+	font-size: 14px;
 	.title {
 		font-size: 18px;
+	}
+}
+
+/* Media */
+
+@media (max-width: 560px) {
+	.wrapper {
+		width: 200px;
+		margin: 5px;
+	}
+	.photo {
+		height: 100px;
+	}
+}
+@media (max-width: 440px) {
+	.wrapper {
+		width: 270px;
+	}
+	.photo {
+		height: 120px;
 	}
 }
 
