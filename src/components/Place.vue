@@ -100,6 +100,7 @@ export default {
 	margin: 10px;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
 .photo {
 	width: 100%;
 	height: 160px;
@@ -125,7 +126,7 @@ export default {
 
 @media (max-width: 560px) {
 	.wrapper {
-		width: 180px;
+		width: 45%;
 		margin: 5px;
 	}
 	.photo {
